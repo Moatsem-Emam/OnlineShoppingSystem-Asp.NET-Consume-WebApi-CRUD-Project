@@ -1,0 +1,50 @@
+﻿@model ConsumeWebApi.Models.order.GetOrder
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-center text-white">
+                    <h3 class="card-title text-bg-danger">Are you sure to delete this?</h3>
+                </div>
+                <div class="card-body">
+                    <partial name="_OrderData" />
+                </div>
+                <div class="container mt-2">
+                    <h3 style="color: orange">Order Products</h3>
+                    @if (Model.productOrder?.Count != null)
+                    {
+                        <ul class="list-group">
+                            @foreach (var item in Model.productOrder)
+                            {
+                                <a class="text-decoration-none" asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductId">
+                                <li class="list-group-item list-group-item-action">
+                                    <span class="fw-bold">@item.products?.Description</span> - $@item.products?.price
+                                </li>
+                                </a>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger mt-3">
+                            <h5>There is no Products in this Order.</h5>
+                        </div>
+                    }
+                </div>
+                <form method="post" asp-controller="Order" asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                </form>
+            </div>
+
+            <a class="btn btn-outline-info btn-block mt-4" asp-action="Index" asp-controller="Order">Back to list</a>
+        </div>
+    </div>
+</div>
+
+

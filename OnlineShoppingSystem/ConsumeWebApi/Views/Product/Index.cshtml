@@ -1,0 +1,226 @@
+﻿@model IEnumerable<ConsumeWebApi.Models.product.GetProduct>
+
+@{
+	ViewData["Title"] = "Products";
+}
+<h1> <b>Products</b> </h1>
+
+<div class="d-flex justify-content-between mb-3">
+	<a asp-controller="Product" asp-action="Create" class="btn btn-outline-success">Create New</a>
+
+	<div class="d-flex">
+		<form method="get" class="col-2 mb-2 me-2" asp-controller="Product" asp-action="Index">
+			<div class="input-group">
+				<input type="hidden" name="CatId" value="@ViewBag.CatId" />
+				<input type="hidden" name="search" value="@ViewBag.CurrentSearch" />
+
+				<input type="number" name="pageSize" class="form-control" value="@ViewBag.pageSize" placeholder="size" />
+				<input type="number" name="pageNumber" class="form-control" value="@ViewBag.pageNumber" placeholder="no." />
+
+				<button type="submit" class="btn btn-secondary">
+					<i class="bi bi-display"></i>
+				</button>
+			</div>
+		</form>
+		<form method="get" class="col-4 me-3" asp-controller="Product" asp-action="Index">
+			<input type="hidden" name="search" value="@ViewBag.CurrentSearch" />
+			<input type="hidden" name="pageSize" value="@ViewBag.pageSize" />
+			<input type="hidden" name="pageNumber" value="@ViewBag.pageNumber" />
+			<div class="input-group">
+				<select class="form-select" name="CatId" onchange="this.form.submit()" asp-items="@ViewBag.AllCategories">
+					<option value="0">Filter</option>
+				</select>
+				<div class="input-group-append">
+					<span class="input-group-text">
+						<i class="bi bi-filter"></i>
+					</span>
+				</div>
+			</div>
+		</form>
+		<form method="get" class="col-4 mb-2 me-3" asp-controller="Product" asp-action="Index">
+			<div class="input-group">
+				<input type="hidden" name="CatId" value="@ViewBag.CatId" />
+				<input type="hidden" name="pageSize" value="@ViewBag.pageSize" />
+				<input type="hidden" name="pageNumber" value="@ViewBag.pageNumber" />
+				<input type="text" name="search" class="form-control" value="@ViewBag.CurrentSearch" placeholder="Search" />
+				<button type="submit" class="btn btn-secondary">
+					<i class="bi bi-search"></i>
+				</button>
+			</div>
+		</form>
+
+		@*<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<i class="bi bi-sort-up"></i>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="sortDropdown">
+		<a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="SortName">Sort by Name</a>
+		<a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="SortSalary">Sort by Salary</a>
+		</div>
+		</div>*@
+	</div>
+</div>
+
+
+@if (Model.Count() > 0)
+{
+	<table class="table table-dark table-bordered table-striped table-hover">
+		<thead>
+			<tr class="table table-info">
+				<th>Image</th>
+				<th>
+					<div style="width:50%;float:left;text-align:left">
+						Name
+@* 						@Html.DisplayNameFor(p=>p.Products.nam)
+ *@					</div>
+					<div style="width:50%;float:right;text-align:right">
+						<a asp-controller="Product"
+						   asp-action="Index"
+						   asp-route-sortType="Name"
+						   asp-route-sortOrder="asc"
+						   asp-route-search="@ViewBag.CurrentSearch"
+						   asp-route-CatId="@ViewBag.CatId"
+						   asp-route-pageSize="@ViewBag.pageSize"
+						   asp-route-pageNumber="@ViewBag.pageNumber"
+						   style="text-decoration:none">
+							<i class="bi bi-arrow-up"></i>
+						</a>
+						<a asp-controller="Product"
+						   asp-action="Index"
+						   asp-route-sortType="Name"
+						   asp-route-sortOrder="desc"
+						   asp-route-search="@ViewBag.CurrentSearch"
+						   asp-route-CatId="@ViewBag.CatId"
+						   asp-route-pageSize="@ViewBag.pageSize"
+						   asp-route-pageNumber="@ViewBag.pageNumber"
+						   style="text-decoration:none">
+							<i class="bi bi-arrow-down"></i>
+						</a>
+					</div>
+				</th>
+				<th>
+					Description
+					@* @Html.DisplayNameFor(p=>p.Description) *@
+				</th>
+				<th>
+					Category
+				</th>
+				<th>
+					Price
+					@* @Html.DisplayNameFor(p=>p.price) *@
+				</th>
+				<th>
+					Product Date
+					@*@Html.DisplayNameFor(p=>p.ProductDate)
+				*@
+				</th>
+				<th>Operations</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						<div class="d-flex justify-content-center align-items-center">
+							<div>
+								<img src="https://localhost:7037/api/Products/GetImage/@item.ImageUrl.Replace(@"\Images\", "")" style="width: 50px; height: auto; border-radius:50%" />
+						@* @if (Model.ImageBytesDict.ContainsKey(item.Id))
+						{
+						var imageBytes = Model.ImageBytesDict[item.Id];
+						var base64Image = Convert.ToBase64String(imageBytes);
+						var imgSrc = $"data:{item.Image.ContentType};base64,{base64Image}";
+						<img src="@imgSrc" alt="Product Image" />
+						}
+						else
+						{
+						<p>No image available</p>
+						} *@
+ 					</div>
+						</div>
+					</td>
+
+					<td>@item.Name</td>
+					<td>@item.Description</td>
+					<td>@item.Catagory?.Name</td>
+					<td>@item.price</td>
+					<td>@item.ProductDate</td>
+
+					<td>
+						<a class="btn btn-outline-primary" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a>
+						<a class="btn btn-outline-success" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id"> <i class="bi bi-pencil-square"></i></a>
+						<a class="btn btn-outline-danger " asp-controller="Product" asp-action="GetDelete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+						@*<a class="btn btn-outline-danger " asp-action="DeleteImage" asp-controller="Product" asp-route-id="@item.Id">Delete Image</a>*@
+					</td>
+
+				</tr>
+			}
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="4" style="text-align:right">Total Prices</th>
+				<th>@Model.Sum(p=>p.price)</th>
+				<th></th>
+			</tr>
+		</tfoot>
+	</table>
+}
+else
+{
+	<h1 class="alert alert-danger text-center">There is no data.</h1>
+}
+
+<div class="row">
+	<div class="col-md-6">
+		<nav aria-label="Page navigation">
+			<ul class="pagination">
+
+				<li class="page-item">
+					<a class="page-link" href="?CatId=@ViewBag.CatId&search=@ViewBag.CurrentSearch&pageNumber=1&pageSize=@ViewBag.pageSize">First</a>
+				</li>
+				<li class="page-item">
+					<a class="page-link" href="?CatId=@ViewBag.CatId&search=@ViewBag.CurrentSearch&pageNumber=@(ViewBag.pageNumber - 1)&pageSize=@ViewBag.pageSize">Previous</a>
+				</li>
+
+
+				<li class="page-item disabled">
+					<span class="page-link">Page @(ViewBag.pageNumber)</span>
+				</li>
+
+				@if (ViewBag.pageNumber >= Math.Ceiling((double)ViewBag.totalCount / (double)ViewBag.pageSize))
+				{
+					<li class="page-item">
+						<a class="page-link" href="?CatId=@ViewBag.CatId&search=@ViewBag.CurrentSearch&pageNumber=@(ViewBag.pageNumber + 1)&pageSize=@ViewBag.pageSize">Next</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="?CatId=@ViewBag.CatId&search=@ViewBag.CurrentSearch&pageNumber=@(Math.Ceiling((double)ViewBag.totalCount / (double)ViewBag.pageSize))&pageSize=@ViewBag.pageSize">Last</a>
+					</li>
+				}
+			</ul>
+		</nav>
+	</div>
+</div>
+
+@*<form asp-action="GetIndexView" method="post">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search" value="@ViewBag.Search">
+
+    <label for="catId">Category ID:</label>
+    <input type="number" id="catId" name="catId" value="">
+
+    <label for="sortOrder">Sort Order:</label>
+    <select id="sortOrder" name="sortOrder" ,value="@ViewBag.sortOrder">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+
+    </select>
+
+    <label for="sortType">Sort Type:</label>
+    <select id="sortType" name="sortType">
+        <option value="Name">Name</option>
+        <option value="Description">Description</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+*@

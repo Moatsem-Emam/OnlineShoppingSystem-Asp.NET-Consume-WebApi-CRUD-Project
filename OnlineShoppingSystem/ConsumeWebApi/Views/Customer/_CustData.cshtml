@@ -1,0 +1,23 @@
+﻿@{
+	ConsumeWebApi.Models.customer.CustomerViewModel c = (ConsumeWebApi.Models.customer.CustomerViewModel)ViewBag.customer;
+}
+
+<div class="row">
+	<div class="col-md-6 order-md-1">
+		<div class="row">
+			<dl class="row text-white">
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(cust=>c.Id)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(cust=>c.Id)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(cust=>c.Name)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(cust=>c.Name)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(cust=>c.Email)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(cust=>c.Email)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(cust=>c.Phone)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(cust=>c.Phone)</dd>
+			</dl>
+		</div>
+	</div>
+</div>

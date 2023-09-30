@@ -1,0 +1,50 @@
+﻿@model ConsumeWebApi.Models.customer.CustomerViewModel
+
+@{
+	ViewData["Title"] = "Delete Customer";
+}
+
+<h1><b>Delete Customer</b></h1>
+
+<div class="container">
+	<div class="row justify-content-center mt-5">
+		<div class="col-md-8">
+			<div class="card border-primary">
+				<div class="card-header bg-primary text-center text-white">
+					<h3 class="card-title text-bg-danger">Are you sure to delete this?</h3>
+				</div>
+				<div class="card-body">
+					<partial name="_CustData" />
+				</div>
+				<div class="container mt-2">
+					<h3 style="color: orange">@Model.Name`s Orders</h3>
+					@if (Model.orders.Count >0)
+					{
+						<ul class="list-group">
+							@foreach (var item in Model.orders)
+							{
+								<a class="text-decoration-none" asp-controller="Order" asp-action="Delete" asp-route-id="@item.Id">
+								<li class="list-group-item list-group-item-action">
+									<span class="fw-bold">Order Number: @item.Id </span>- Click to show details
+								</li>
+								</a>
+							}
+						</ul>
+					}
+					else
+					{
+						<div class="alert alert-danger mt-3">
+							<h5>There is no Orders related to this customer.</h5>
+						</div>
+					}
+				</div>
+				<form method="post" asp-controller="Customer" asp-action="Delete">
+					<input type="hidden" asp-for="Id" />
+					<button type="submit" class="btn btn-outline-danger">Delete</button>
+				</form>
+			</div>
+
+			<a class="btn btn-outline-info btn-block mt-4" asp-action="Index" asp-controller="Order">Back to list</a>
+		</div>
+	</div>
+</div>

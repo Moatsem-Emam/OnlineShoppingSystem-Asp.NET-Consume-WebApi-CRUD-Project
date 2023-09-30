@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+
+html {
+    background-color: #0d0d0d;
+    user-select: none;
+}
+
+.c {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+details {
+    color: white;
+    cursor: pointer;
+    font-family: "roboto", arial;
+    font-weight: 300;
+    margin-bottom: 1vh;
+    width: 33vw;
+}
+
+    details summary {
+        background: linear-gradient(#333333, #1a1a1a);
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        padding: 2.5vh;
+        font-size: 2.8vh;
+    }
+
+        details summary:focus {
+            outline: none;
+        }
+
+    details p {
+        padding: 1.5vh;
+        font-size: 2.4vh;
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.01);
+    }
+
+        details p:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        details p:nth-last-child(1) {
+            border-bottom: 0.3vh solid #333333;
+        }

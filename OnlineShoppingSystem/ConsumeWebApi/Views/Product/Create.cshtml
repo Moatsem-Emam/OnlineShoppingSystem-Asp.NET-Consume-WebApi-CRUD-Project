@@ -1,0 +1,71 @@
+﻿@model ConsumeWebApi.Models.product.PostProduct
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h1><b>Create Product</b></h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDate" class="control-label"></label>
+                <input asp-for="ProductDate" class="form-control" />
+                <span asp-validation-for="ProductDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+           
+            <div>
+                <label asp-for="CatagoryId"></label>
+                <select asp-for="CatagoryId" asp-items="@ViewBag.Categories" class="form-control">
+                    <option selected disabled>Select...</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label >Upload image</label>
+                <input asp-for="Image" class="form-control form-control-sm" type="file" accept=".png,.jpg " id="image"  onchange="Addimage()">
+            </div>
+            <img src="" id="prodImage" class="col-4 card" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        function Addimage() {
+            document.getElementById("prodImage").src = window.URL.createObjectURL(document.getElementById("image").files[0]);
+        }
+    </script>
+}
+

@@ -1,0 +1,31 @@
+﻿@{
+	ConsumeWebApi.Models.order.GetOrder o = (ConsumeWebApi.Models.order.GetOrder)ViewBag.SpecificOrder;
+}
+
+<div class="row">
+	<div class="col-md-6 order-md-1">
+		<div class="row">
+			<dl class="row text-white">
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(ord=>o.Id)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(ord=>o.Id)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(ord=>o.OrderDate)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(ord=>o.OrderDate)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(ord=>o.UpdatedOrderDate)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(ord=>o.UpdatedOrderDate)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(ord=>o.Address)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(ord=>o.Address)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(ord=>o.Status)</dt>
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(ord=>o.Status)</dd>
+
+				<dt class="col-md-4" style="font-weight: bold; color: #007bff;">Customer</dt>
+				<a class="text-decoration-none col-md-8" asp-controller="Customer" asp-action="Details" asp-route-id="@o.CustomerId">
+				<dd class="col-md-8" style="color: white;">@Html.DisplayFor(ord=>o.customer.Name)</dd>
+				</a>
+			</dl>
+		</div>
+	</div>
+</div>

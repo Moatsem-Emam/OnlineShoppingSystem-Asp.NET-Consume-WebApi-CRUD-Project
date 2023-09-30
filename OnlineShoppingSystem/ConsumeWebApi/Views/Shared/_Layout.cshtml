@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - ConsumeWebApi</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/ConsumeWebApi.styles.css" asp-append-version="true" />
+	<link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+	<link href="~/css/partialinfo.css" rel="stylesheet" />
+	<link href="~/css/solartheme.min.css" rel="stylesheet" />
+	<link href="~/css/transition.css" rel="stylesheet" />
+</head>
+<body class="bg-image">
+	<header>
+		<nav class="navbar navbar-expand-lg" data-bs-theme="#151226">
+			<div class="container-fluid">
+
+				<a class="navbar-brand" asp-controller="Home" asp-action="Index">
+					<div class="logo-image">
+						<img src="~/Images/online-shopping-logo-removebg (1).png" class="img-fluid" width="70px" height="70px" />
+					</div>
+				</a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarColor02">
+					<ul class="navbar-nav me-auto">
+
+						<li class="nav-item">
+							<a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+						</li>
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Data</a>
+							<div class="dropdown-menu">
+								<a class="nav-link text-info" asp-controller="Category" asp-action="Index">Categories</a>
+								<a class="nav-link text-info" asp-controller="Product" asp-action="Index">Products</a>
+								<a class="nav-link text-info" asp-controller="Customer" asp-action="Index">Customers</a>
+								<a class="nav-link text-info" asp-controller="Order" asp-action="Index">Orders</a>
+								
+							</div>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link text-info" asp-controller="ProductOrder" asp-action="Index">Assign Product to Order</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@{
+				var errorMessage = TempData["errorMessage"]?.ToString();
+				var successMessage = TempData["successMessage"]?.ToString();
+			}
+			@if (!string.IsNullOrWhiteSpace(@successMessage))
+			{
+				<div class="alert alert-success">
+					<b>Success: </b>@successMessage
+					<button type="button" class="btn-close float-end" data-bs- dismiss="alert" aria-label="Close"></button>
+				</div>
+			}
+			else
+					if (!string.IsNullOrWhiteSpace(errorMessage))
+			{
+				<div class="alert alert-danger">
+					<b>Error: </b>@errorMessage
+					<button type="button" class="btn-close float-end" data-bs- dismiss="alert" aria-label="Close"></button>
+				</div>
+			}
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2023 - ConsumeWebApi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

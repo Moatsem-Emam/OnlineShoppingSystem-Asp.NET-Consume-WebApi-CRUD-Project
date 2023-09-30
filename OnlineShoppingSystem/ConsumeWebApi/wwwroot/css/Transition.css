@@ -1,0 +1,63 @@
+﻿/* Define the background image and its properties */
+.bg-image {
+    animation: transitionIn 0.75s;
+    background-image: url('../Images/OnlineShopping.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Fixed background */
+    color: #fff; /* Text color, adjust as needed */
+    height: 100vh; /* Set the height to the viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex;
+    flex-direction: column;
+    opacity: 2.1;
+}
+.display-4 {
+    animation: transitionIn 1s;
+}
+
+/* Make the navbar transparent */
+.navbar {
+    background-color: transparent; /* Set the background to transparent */
+    backdrop-filter: blur(10px); /* Add a blur effect to the background */
+    -webkit-backdrop-filter: blur(10px); /* For cross-browser compatibility */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#img-home {
+    animation: transitionInX 0.75s;
+}
+.text-center {
+    text-align: center;
+    color: #fff;
+}
+@keyframes transitionInX {
+    from {
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@-moz-keyframes name {
+}
+
+@-webkit-keyframes name {
+}

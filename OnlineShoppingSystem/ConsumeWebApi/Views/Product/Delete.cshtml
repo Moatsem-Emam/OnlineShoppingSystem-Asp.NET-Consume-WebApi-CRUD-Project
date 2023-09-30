@@ -1,0 +1,25 @@
+﻿@model ConsumeWebApi.Models.product.GetProduct
+
+@{
+	ViewData["Title"] = "Delete Product";
+}
+
+<h1><b>Delete Product</b></h1>
+
+<div class="card border-primary  mb-3">
+	<div class="card-header bg-primary text-center text-white">
+		<h3 class="card-title alert alert-danger">Are You Sure To Delete This!</h3>
+	</div>
+	<div class="card-body">
+		<partial name="_ProdData" />
+	</div>
+	<form method="post" asp-controller="Product" asp-action="Delete">
+		<input type="hidden" asp-for="Id" />
+		<button type="submit" class="btn btn-outline-danger">Delete</button>
+	</form>
+</div>
+<a class="btn btn-primary btn-block mb-4" asp-action="Index" asp-controller="Product">Back to list</a>
+<div>
+	@Html.ActionLink("Delete", "Delete", new { /* id = Model.PrimaryKey */ }) |
+	<a class="btn btn-outline-info" asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ConsumeWebApi.Models.customer.CustomerViewModel>
+
+@{
+	ViewData["Title"] = "Customers";
+}
+
+<h1><b>Customers</b></h1>
+
+<p>
+	<a class="btn btn-outline-success" asp-action="Create">Create New</a>
+</p>
+@if (Model.Count() > 0)
+{
+<table class="table table-dark table-bordered table-striped table-hover">
+	<thead>
+			<tr class="table table-info">
+			@* <th>
+			@Html.DisplayNameFor(model => model.Id)
+			</th>*@
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Email)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Phone)
+
+			</th>
+			<th>
+				Operations
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				@*<td>
+			@Html.DisplayFor(modelItem => item.Id)
+			</td>*@
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Phone)
+				</td>
+				<td>
+					<a class="btn btn-outline-primary" asp-controller="Customer" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a>
+					<a class="btn btn-outline-success" asp-controller="Customer" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+					<a class="btn btn-outline-danger" asp-controller="Customer" asp-action="GetDelete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+}
+else
+{
+	<h1 class="alert alert-danger text-center">There is no data.</h1>
+}

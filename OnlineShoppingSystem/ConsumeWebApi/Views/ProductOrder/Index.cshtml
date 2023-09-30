@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ConsumeWebApi.Models.ProductOrders.ProductOrdersViewModel>
+
+@{
+    ViewData["Title"] = "Assign";
+}
+
+<h1>Orders Products</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Create New</a>
+</p>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-dark table-bordered table-striped table-hover">
+        <thead>
+            <tr class="table table-info">
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no data.</h1>
+}

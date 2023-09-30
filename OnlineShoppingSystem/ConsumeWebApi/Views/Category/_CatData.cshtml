@@ -1,0 +1,27 @@
+﻿@{
+	ConsumeWebApi.Models.category.GetCategory p = (ConsumeWebApi.Models.category.GetCategory)ViewBag.SpecificCat;
+}
+<div class="row">
+	<div class="col-md-6 order-md-1">
+		<dl class="row text-white">
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.Name)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.Name)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.Description)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.Description)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.CreatedAt)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.CreatedAt)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.LastUpdateAt)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.LastUpdateAt)</dd>
+
+		</dl>
+	</div>
+	<div class="col-md-6 order-md-2">
+		<div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+			<img src="https://localhost:7037/api/Categories/GetImage/@Model.ImageUrl.Replace(@"\Images\", "")" style="width: 70%; max-width: 250px; height: auto;">
+		</div>
+	</div>
+</div>
+

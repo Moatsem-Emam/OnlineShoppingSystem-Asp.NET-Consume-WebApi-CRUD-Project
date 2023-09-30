@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web_Api_ITI</name>
+    </assembly>
+    <members>
+        <member name="M:Web_Api_ITI.Controllers.CategoriesController.GetCategories">
+            <summary>
+            Get Categories Data
+            </summary>
+            <returns>Categories context</returns>
+        </member>
+        <member name="M:Web_Api_ITI.Controllers.CategoriesController.PostCategory(Web_Api_ITI.Models.Category)">
+            <summary>
+            Add Category
+            </summary>
+            <param name="cat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web_Api_ITI.Controllers.ProductsController.GetProducts(System.String,System.Int32,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Get Products Data
+            </summary>
+            <returns>Product Object</returns>
+        </member>
+        <member name="M:Web_Api_ITI.Controllers.ProductsController.PostProducts(Web_Api_ITI.Models.Product)">
+            <summary>
+            Add Products
+            </summary>
+            <param name="prod"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web_Api_ITI.Migrations.creating_DB">
+            <inheritdoc />
+        </member>
+        <member name="M:Web_Api_ITI.Migrations.creating_DB.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Web_Api_ITI.Migrations.creating_DB.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Web_Api_ITI.Migrations.creating_DB.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:Web_Api_ITI.Models.Product.Id">
+            <summary>
+            A uniqur identity(1,1) identifier
+            </summary>
+        </member>
+    </members>
+</doc>

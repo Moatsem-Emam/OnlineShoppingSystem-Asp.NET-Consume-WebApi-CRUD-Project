@@ -1,0 +1,39 @@
+﻿@{
+	ConsumeWebApi.Models.product.GetProduct p = (ConsumeWebApi.Models.product.GetProduct)ViewBag.SpecificProd;
+}
+<div class="row">
+	<div class="col-md-6 order-md-1">
+		<dl class="row text-white">
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.Name)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.Name)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.Description)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.Description)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.ProductDate)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.ProductDate)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.price)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.price)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.CreatedAt)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.CreatedAt)</dd>
+
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.LastUpdateAt)</dt>
+			<dd class="col-md-8" style="color: white;">@Html.DisplayFor(prd=>p.LastUpdateAt)</dd>
+			
+			<dt class="col-md-4" style="font-weight: bold; color: #007bff;">@Html.DisplayNameFor(prd=>p.CatagoryId)</dt>
+			<dd class="col-md-8" style="color: white;">
+			<a class="text-decoration-none" asp-controller="Category" asp-action="Details" asp-route-id="@p.CatagoryId">
+			<div>@Html.DisplayFor(prd=>p.Catagory.Name) (@Html.DisplayFor(prd=>p.Catagory.Description))</div>
+			</a>
+			</dd>
+		</dl>
+	</div>
+	<div class="col-md-6 order-md-2">
+		<div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+			<img src="https://localhost:7037/api/Products/GetImage/@Model.ImageUrl.Replace(@"\Images\", "")" style="width: 70%; max-width: 250px; height: auto;">
+		</div>
+	</div>
+</div>
+
