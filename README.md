@@ -15,12 +15,15 @@ The Online Shopping System is a web application built with ASP.NET Core MVC. It 
 
 ### Technologies Used
 
-- ASP.NET Core MVC
-- ASP.NET Core Web API
-- C#
-- Entity Framework Core
-- LINQ
-- SQL Server
+- **ASP.NET Core MVC:** The framework used for building the front-end web application.
+- **C#:** The primary programming language for developing the application logic.
+- **ASP.NET Core Web API:** The backend API that provides data services to the MVC frontend.
+- **Entity Framework Core:** Used for database interaction and management.
+- **LINQ:** Used for querying and manipulating data in the application.
+- **SQL Server:** The relational database management system used to store and manage product data.
+- **HTTP Client:** Utilized in the MVC application to consume the RESTful Web API for data retrieval and manipulation.
+
+These technologies collectively power the Online Shopping System, allowing seamless interaction between the frontend and backend, efficient data management, and a responsive user experience.
 
 ### Features
 
