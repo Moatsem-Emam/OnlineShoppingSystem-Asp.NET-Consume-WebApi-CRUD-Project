@@ -11,7 +11,7 @@
 
 ### Description
 
-The Online Shopping System is a web application built with ASP.NET Core MVC for the front end and ASP.NET Core Web API for the backend . It allows users to perform CRUD (Create, Read, Update, Delete) operations on products, implement search and filtering, and provides basic pagination functionality.
+The Online Shopping System is a web application built with ASP.NET Core MVC. It enables users to perform CRUD (Create, Read, Update, Delete) operations on products by consuming a RESTful ASP.NET Core Web API. This project showcases how to integrate and communicate with the backend API using HTTP Client to fetch and manipulate product data. Additionally, it includes features for implementing search, filtering, and basic pagination to enhance the user experience.
 
 ### Technologies Used
 
