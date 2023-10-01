@@ -20,14 +20,14 @@ The Online Shopping System is a web application built with ASP.NET Core MVC for 
 
 To run this project locally, follow these steps:
 
-1. Clone this repository to your local machine.
+#### 1. Clone this repository to your local machine.
    ```bash
    git clone https://github.com/yourusername/onlineShoppingSystem.git
-2. Navigate to the project directory.
+#### 2. Navigate to the project directory.
    ```bash
    cd onlineShoppingSystem
-3. Configure your database connection in the appsettings.json file.
-4. Apply database migrations to create the database schema.
+#### 3. Configure your database connection in the appsettings.json file.
+#### 4. Apply database migrations to create the database schema.
    ```bash
    dotnet ef database update
-5. Then run the application
+### Here is how to run application
