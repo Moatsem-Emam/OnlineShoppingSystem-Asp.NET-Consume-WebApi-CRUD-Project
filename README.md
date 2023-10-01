@@ -3,7 +3,6 @@
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Screenshots/Demo](#screenshotsdemo)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -16,7 +15,22 @@
 
 The Online Shopping System is a web application built with ASP.NET Core MVC for the front end and ASP.NET Core Web API for the backend . It allows users to perform CRUD (Create, Read, Update, Delete) operations on products, implement search and filtering, and provides basic pagination functionality.
 
+### Technologies Used
 
+- ASP.NET Core MVC
+- ASP.NET Core Web API
+- C#
+- Entity Framework Core
+- LINQ
+- SQL Server
+
+### Features
+
+- Create, Read, Update, and Delete products.
+- Search for products by name or category.
+- Apply filters to refine product listings.
+- Implement basic pagination for product results.
+- 
 ### Installation
 
 To run this project locally, follow these steps:
@@ -37,4 +51,7 @@ To run this project locally, follow these steps:
 #### 2. Select this option to run multiple files 
 ![Screenshot (560)](https://github.com/Moatsem-Emam/OnlineShoppingSystem-Asp.NET-Consume-WebApi-CRUD-Project/assets/146538331/520d5e64-99f3-4934-9f6f-13858486215c)
 
+## Contact
+
+For any inquiries or feedback, you can reach out to [Motsememamhussain@gmail.com](mailto:Motsememamhussain@gmail.com) or connect with us on [GitHub](https://github.com/Moatsem-Emam).
 
