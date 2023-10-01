@@ -68,6 +68,8 @@ To run this project locally, follow these steps:
 ![Screenshot (500)](https://github.com/Moatsem-Emam/OnlineShoppingSystem-Asp.NET-Consume-WebApi-CRUD-Project/assets/146538331/d46721fa-02a3-411e-8954-dfe2bcbc41b4)
 #### Delete
 ![Screenshot (504)](https://github.com/Moatsem-Emam/OnlineShoppingSystem-Asp.NET-Consume-WebApi-CRUD-Project/assets/146538331/6d5a8a66-7b22-4b78-8de2-dec48247c9df)
+
+#### You can see browse full slides from [Here](https://github.com/Moatsem-Emam/OnlineShoppingSystem-Asp.NET-Consume-WebApi-CRUD-Project/blob/main/Online%20Shopping%20System%20Slides.pptx).
 ## Contact
 
 For any inquiries or feedback, you can reach out to [Motsememamhussain@gmail.com](mailto:Motsememamhussain@gmail.com) or connect with us on [GitHub](https://github.com/Moatsem-Emam).
