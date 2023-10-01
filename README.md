@@ -1,2 +1,25 @@
-# OnlineShoppingSystem-Asp.NET-Consume-WebApi-CRUD-Project
-## Some screenshots from the project
+# Online Shopping System
+
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots/Demo](#screenshotsdemo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Contributors](#contributors)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgments](#acknowledgments)
+
+### Description
+
+The Online Shopping System is a web application built with ASP.NET Core MVC for the front end and ASP.NET Core Web API for the backend. It provides basic CRUD operations along with search, filtering, and basic pagination features. The system is designed to allow users to browse and manage products in an online store.
+
+### Installation
+
+To run this project locally, follow these steps:
+
+1. Clone this repository to your local machine.
+   ```bash
+   git clone https://github.com/yourusername/onlineShoppingSystem.git
